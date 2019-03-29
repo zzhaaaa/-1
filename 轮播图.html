@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				position:relative;
+			}
+			#ul{
+				width:590px;
+				height:470px;
+			}
+			#ul li{
+				list-style: none;
+				display:none;
+			}
+			#ol{
+				position:absolute;
+				top:410px;
+				left:240px;
+			}
+			#ol li{
+				list-style: none;
+				float:left;
+				width:10px;
+				height:10px;
+				
+				border-radius: 50%;
+				border:1px solid white;
+				text-align:center;
+				margin-right:5px;
+			}
+			.active{
+				background-color:white;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul id="ul">
+				<li style="display: block;"><img src="img/1.jpg" alt="" /></li>
+				<li><img src="img/2.jpg" alt="" /></li>
+				<li><img src="img/3.jpg" alt="" /></li>
+				<li><img src="img/4.jpg" alt="" /></li>
+			</ul>
+			<ol id="ol">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		<script>
+			var ulLi=document.getElementById("ul")
+			        .getElementsByTagName("li");
+			var olLi=document.getElementById("ol")
+			        .getElementsByTagName("li");
+			 var index=0;       
+			var timer=setInterval(fun,1000);  
+			function fun(){
+				ulLi[index].style.display="none";
+				olLi[index].setAttribute("class","");
+				index++;
+				if(index==4){
+					index=0;
+				}
+				ulLi[index].style.display="block";
+				olLi[index].setAttribute("class","active")
+			}
+			var a;
+			for(var i=0;i<olLi.length;i++){
+				olLi[i].index=i; //就是这行是重点了，分别赋予每个li的index值。
+				olLi[i].onmouseover=function(e){
+					clearInterval(timer);
+					a=this.index;
+					console.log(a);
+					for(var j=0;j<olLi.length;j++){
+						olLi[j].setAttribute("class","")
+					}
+				
+					for(var k=0;k<ulLi.length;k++){
+						ulLi[k].style.display="none";
+					}
+					olLi[a].setAttribute("class","active")
+					ulLi[a].style.display="block";
+				}
+			}
+			/*var ul=document.getElementById("ul");
+			ul.onmouseover=function(){
+				clearInterval(timer);
+			}
+			ul.onmouseout=function(){
+				timer=setInterval(fun,1000);
+			}*/
+			
+		</script>
+	</body>
+</html>

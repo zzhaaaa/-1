@@ -1,0 +1,41 @@
+#lun{background-image: url(../img/背景.jpg);margin:0px;padding: 0px;}
+#l1{width: 1000px;margin: 0px auto;}
+#box,#you1{float: left;overflow: hidden;}
+#you1{margin: 15px auto 20px 25px;}
+#box{
+	position:relative;
+	overflow: hidden;
+	width: 660px;
+	margin: 15px auto 20px auto;	
+}
+#ul{
+	width:660px;
+	height:440px;					
+}					
+					#ul li{
+						list-style: none;
+						display:none;
+						background-color: black;
+					}
+					
+					#ol{
+						position:absolute;
+						top:410px;
+						left:540px;
+					}
+					#ol li{
+						list-style: none;
+						float:left;
+						width:10px;
+						height:10px;
+						border-radius: 50%;
+						border:1px solid white;
+						text-align:center;
+						margin-right:5px;
+					}
+					.active{
+						background-color:white;
+					}
+					.li img{float: left;margin: 0px;}
+					.li span{color: black;font-size: 40px;text-decoration: none;font-weight: bold;width: 150px;height: 350px;}
+					.li a{text-decoration: none;}
